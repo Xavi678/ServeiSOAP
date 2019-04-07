@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://api" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://api" xmlns:intf="http://api" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://api" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="autenticar">
+    <complexType>
+     <sequence>
+      <element name="nom" type="xsd:string"/>
+      <element name="passwd" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="autenticarResponse">
+    <complexType>
+     <sequence>
+      <element name="autenticarReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="afegirProducte">
+    <complexType>
+     <sequence>
+      <element name="user" type="xsd:string"/>
+      <element name="producte" type="impl:Producte"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Producte">
+    <sequence>
+     <element name="data" nillable="true" type="xsd:string"/>
+     <element name="dataFi" nillable="true" type="xsd:string"/>
+     <element name="descripcio" nillable="true" type="xsd:string"/>
+     <element name="disponibilitat" type="xsd:int"/>
+     <element name="id" type="xsd:int"/>
+     <element name="nom" nillable="true" type="xsd:string"/>
+     <element name="preu" type="xsd:int"/>
+     <element name="propietari" nillable="true" type="xsd:string"/>
+     <element name="venuts" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <element name="afegirProducteResponse">
+    <complexType>
+     <sequence>
+      <element name="afegirProducteReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="obtenirProducte">
+    <complexType>
+     <sequence>
+      <element name="user" type="xsd:string"/>
+      <element name="product" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="obtenirProducteResponse">
+    <complexType>
+     <sequence>
+      <element name="obtenirProducteReturn" type="impl:Producte"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="obtenirProductes">
+    <complexType>
+     <sequence>
+      <element name="user" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="obtenirProductesResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="obtenirProductesReturn" type="impl:Producte"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="otenirProductesperData">
+    <complexType>
+     <sequence>
+      <element name="user" type="xsd:string"/>
+      <element name="inici" type="xsd:string"/>
+      <element name="fi" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="otenirProductesperDataResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="otenirProductesperDataReturn" type="impl:Producte"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="obtenirProducteRequest">
+
+      <wsdl:part element="impl:obtenirProducte" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="otenirProductesperDataResponse">
+
+      <wsdl:part element="impl:otenirProductesperDataResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="otenirProductesperDataRequest">
+
+      <wsdl:part element="impl:otenirProductesperData" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="afegirProducteRequest">
+
+      <wsdl:part element="impl:afegirProducte" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="afegirProducteResponse">
+
+      <wsdl:part element="impl:afegirProducteResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="autenticarResponse">
+
+      <wsdl:part element="impl:autenticarResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="obtenirProducteResponse">
+
+      <wsdl:part element="impl:obtenirProducteResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="obtenirProductesRequest">
+
+      <wsdl:part element="impl:obtenirProductes" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="autenticarRequest">
+
+      <wsdl:part element="impl:autenticar" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="obtenirProductesResponse">
+
+      <wsdl:part element="impl:obtenirProductesResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ServeiCarro">
+
+      <wsdl:operation name="autenticar">
+
+         <wsdl:input message="impl:autenticarRequest" name="autenticarRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:autenticarResponse" name="autenticarResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="afegirProducte">
+
+         <wsdl:input message="impl:afegirProducteRequest" name="afegirProducteRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:afegirProducteResponse" name="afegirProducteResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="obtenirProducte">
+
+         <wsdl:input message="impl:obtenirProducteRequest" name="obtenirProducteRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:obtenirProducteResponse" name="obtenirProducteResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="obtenirProductes">
+
+         <wsdl:input message="impl:obtenirProductesRequest" name="obtenirProductesRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:obtenirProductesResponse" name="obtenirProductesResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="otenirProductesperData">
+
+         <wsdl:input message="impl:otenirProductesperDataRequest" name="otenirProductesperDataRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:otenirProductesperDataResponse" name="otenirProductesperDataResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ServeiCarroSoapBinding" type="impl:ServeiCarro">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="autenticar">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="autenticarRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="autenticarResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="afegirProducte">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="afegirProducteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="afegirProducteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="obtenirProducte">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="obtenirProducteRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="obtenirProducteResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="obtenirProductes">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="obtenirProductesRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="obtenirProductesResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="otenirProductesperData">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="otenirProductesperDataRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="otenirProductesperDataResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ServeiCarroService">
+
+      <wsdl:port binding="impl:ServeiCarroSoapBinding" name="ServeiCarro">
+
+         <wsdlsoap:address location="http://localhost:8080/ServeiSOAP/services/ServeiCarro"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

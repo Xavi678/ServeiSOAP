@@ -1,0 +1,54 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ServeiCarroService WSDL service -->
+
+  <service name="ServeiCarro" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://api"/>
+      <parameter name="wsdlServiceElement" value="ServeiCarroService"/>
+      <parameter name="schemaQualified" value="http://api"/>
+      <parameter name="wsdlServicePort" value="ServeiCarro"/>
+      <parameter name="className" value="api.ServeiCarroSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="ServeiCarro"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="autenticar" qname="operNS:autenticar" xmlns:operNS="http://api" returnQName="retNS:autenticarReturn" xmlns:retNS="http://api" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:nom" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:passwd" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="afegirProducte" qname="operNS:afegirProducte" xmlns:operNS="http://api" returnQName="retNS:afegirProducteReturn" xmlns:retNS="http://api" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:user" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:producte" xmlns:pns="http://api" type="tns:Producte" xmlns:tns="http://api"/>
+      </operation>
+      <operation name="obtenirProducte" qname="operNS:obtenirProducte" xmlns:operNS="http://api" returnQName="retNS:obtenirProducteReturn" xmlns:retNS="http://api" returnType="rtns:Producte" xmlns:rtns="http://api" soapAction="" >
+        <parameter qname="pns:user" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:product" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="obtenirProductes" qname="operNS:obtenirProductes" xmlns:operNS="http://api" returnQName="retNS:obtenirProductesReturn" xmlns:retNS="http://api" returnType="rtns:Producte" xmlns:rtns="http://api" soapAction="" >
+        <parameter qname="pns:user" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="otenirProductesperData" qname="operNS:otenirProductesperData" xmlns:operNS="http://api" returnQName="retNS:otenirProductesperDataReturn" xmlns:retNS="http://api" returnType="rtns:Producte" xmlns:rtns="http://api" soapAction="" >
+        <parameter qname="pns:user" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:inici" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:fi" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="afegirProducte otenirProductesperData autenticar obtenirProducte obtenirProductes"/>
+
+      <typeMapping
+        xmlns:ns="http://api"
+        qname="ns:Producte"
+        type="java:api.Producte"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>
