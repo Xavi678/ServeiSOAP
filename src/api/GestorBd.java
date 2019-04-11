@@ -291,7 +291,7 @@ public class GestorBd {
 
 	public boolean inserirProducte(Producte producte) throws SQLException {
 		Connection conn = DriverManager.getConnection("jdbc:mysql://"+this.hostname+"/"+this.database+this.temps,this.userLogin,this.userPasswd);
-		String sqlInserir="insert into productes(nom,disponibilitat,descripcio,preu,propietari,data,venuts,dataFi) Values(?,?,?,?,?,?,?,?)";
+		String sqlInserir="insert into productes(nom,disponibilitat,descripcio,preu,propietari,data,venuts) Values(?,?,?,?,?,STR_TO_DATE(?,'%d %m %Y') ,?)";
 		PreparedStatement insert=conn.prepareStatement(sqlInserir);
 		insert.setString(1, producte.getNom());
 		insert.setInt(2, producte.getDisponibilitat());
@@ -300,7 +300,7 @@ public class GestorBd {
 		insert.setString(5, producte.getPropietari());
 		insert.setString(6, producte.getData());
 		insert.setInt(7, 0);
-		insert.setString(8, producte.getDataFi());
+		
 		int count=insert.executeUpdate();
 		
 		if(count>0) {

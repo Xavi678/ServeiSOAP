@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -29,16 +29,16 @@
   <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
  </ns1:service>
  <ns1:service name="ServeiCarro" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="obtenirProductes" qname="ns1:obtenirProductes" returnQName="ns1:obtenirProductesReturn" returnType="ns1:Producte" soapAction="" xmlns:ns1="http://api" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
-   <ns2:parameter qname="ns1:user" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns2:operation name="autenticar" qname="ns1:autenticar" returnQName="ns1:autenticarReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://api" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:nom" type="xsd:string"/>
+   <ns2:parameter qname="ns1:passwd" type="xsd:string"/>
   </ns2:operation>
   <ns1:operation name="afegirProducte" qname="ns2:afegirProducte" returnQName="ns2:afegirProducteReturn" returnType="xsd:boolean" soapAction="" xmlns:ns2="http://api" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <ns1:parameter qname="ns2:user" type="xsd:string"/>
    <ns1:parameter qname="ns2:producte" type="ns2:Producte"/>
   </ns1:operation>
-  <ns1:operation name="autenticar" qname="ns3:autenticar" returnQName="ns3:autenticarReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://api" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns3:nom" type="xsd:string"/>
-   <ns1:parameter qname="ns3:passwd" type="xsd:string"/>
+  <ns1:operation name="obtenirProductes" qname="ns3:obtenirProductes" returnQName="ns3:obtenirProductesReturn" returnType="ns3:Producte" soapAction="" xmlns:ns3="http://api">
+   <ns1:parameter qname="ns3:user" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
   <ns1:operation name="obtenirProducte" qname="ns4:obtenirProducte" returnQName="ns4:obtenirProducteReturn" returnType="ns4:Producte" soapAction="" xmlns:ns4="http://api">
    <ns1:parameter qname="ns4:user" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>

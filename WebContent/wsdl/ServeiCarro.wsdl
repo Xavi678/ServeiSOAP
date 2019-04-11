@@ -4,17 +4,26 @@
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://api" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="obtenirProductes">
+   <element name="autenticar">
     <complexType>
      <sequence>
-      <element name="user" type="xsd:string"/>
+      <element name="nom" type="xsd:string"/>
+      <element name="passwd" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <element name="obtenirProductesResponse">
+   <element name="autenticarResponse">
     <complexType>
      <sequence>
-      <element maxOccurs="unbounded" name="obtenirProductesReturn" type="impl:Producte"/>
+      <element name="autenticarReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="afegirProducte">
+    <complexType>
+     <sequence>
+      <element name="user" type="xsd:string"/>
+      <element name="producte" type="impl:Producte"/>
      </sequence>
     </complexType>
    </element>
@@ -31,14 +40,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      <element name="venuts" type="xsd:int"/>
     </sequence>
    </complexType>
-   <element name="afegirProducte">
-    <complexType>
-     <sequence>
-      <element name="user" type="xsd:string"/>
-      <element name="producte" type="impl:Producte"/>
-     </sequence>
-    </complexType>
-   </element>
    <element name="afegirProducteResponse">
     <complexType>
      <sequence>
@@ -46,18 +47,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="autenticar">
+   <element name="obtenirProductes">
     <complexType>
      <sequence>
-      <element name="nom" type="xsd:string"/>
-      <element name="passwd" type="xsd:string"/>
+      <element name="user" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <element name="autenticarResponse">
+   <element name="obtenirProductesResponse">
     <complexType>
      <sequence>
-      <element name="autenticarReturn" type="xsd:string"/>
+      <element maxOccurs="unbounded" name="obtenirProductesReturn" type="impl:Producte"/>
      </sequence>
     </complexType>
    </element>
@@ -177,13 +177,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="ServeiCarro">
 
-      <wsdl:operation name="obtenirProductes">
+      <wsdl:operation name="autenticar">
 
-         <wsdl:input message="impl:obtenirProductesRequest" name="obtenirProductesRequest">
+         <wsdl:input message="impl:autenticarRequest" name="autenticarRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:obtenirProductesResponse" name="obtenirProductesResponse">
+         <wsdl:output message="impl:autenticarResponse" name="autenticarResponse">
 
        </wsdl:output>
 
@@ -201,13 +201,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="autenticar">
+      <wsdl:operation name="obtenirProductes">
 
-         <wsdl:input message="impl:autenticarRequest" name="autenticarRequest">
+         <wsdl:input message="impl:obtenirProductesRequest" name="obtenirProductesRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:autenticarResponse" name="autenticarResponse">
+         <wsdl:output message="impl:obtenirProductesResponse" name="obtenirProductesResponse">
 
        </wsdl:output>
 
@@ -243,17 +243,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="obtenirProductes">
+      <wsdl:operation name="autenticar">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="obtenirProductesRequest">
+         <wsdl:input name="autenticarRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="obtenirProductesResponse">
+         <wsdl:output name="autenticarResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -279,17 +279,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="autenticar">
+      <wsdl:operation name="obtenirProductes">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="autenticarRequest">
+         <wsdl:input name="obtenirProductesRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="autenticarResponse">
+         <wsdl:output name="obtenirProductesResponse">
 
             <wsdlsoap:body use="literal"/>
 

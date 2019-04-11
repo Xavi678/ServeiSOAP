@@ -10,16 +10,16 @@
       <parameter name="className" value="api.ServeiCarro"/>
       <parameter name="wsdlPortType" value="ServeiCarro"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation xmlns:operNS="http://api" xmlns:retNS="http://api" xmlns:rtns="http://api" name="obtenirProductes" qname="operNS:obtenirProductes" returnQName="retNS:obtenirProductesReturn" returnType="rtns:Producte" soapAction="">
-        <parameter xmlns:pns="http://api" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:user" type="tns:string"/>
+      <operation xmlns:operNS="http://api" xmlns:retNS="http://api" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="autenticar" qname="operNS:autenticar" returnQName="retNS:autenticarReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://api" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nom" type="tns:string"/>
+        <parameter xmlns:pns="http://api" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:passwd" type="tns:string"/>
       </operation>
       <operation xmlns:operNS="http://api" xmlns:retNS="http://api" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="afegirProducte" qname="operNS:afegirProducte" returnQName="retNS:afegirProducteReturn" returnType="rtns:boolean" soapAction="">
         <parameter xmlns:pns="http://api" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:user" type="tns:string"/>
         <parameter xmlns:pns="http://api" xmlns:tns="http://api" qname="pns:producte" type="tns:Producte"/>
       </operation>
-      <operation xmlns:operNS="http://api" xmlns:retNS="http://api" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="autenticar" qname="operNS:autenticar" returnQName="retNS:autenticarReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://api" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nom" type="tns:string"/>
-        <parameter xmlns:pns="http://api" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:passwd" type="tns:string"/>
+      <operation xmlns:operNS="http://api" xmlns:retNS="http://api" xmlns:rtns="http://api" name="obtenirProductes" qname="operNS:obtenirProductes" returnQName="retNS:obtenirProductesReturn" returnType="rtns:Producte" soapAction="">
+        <parameter xmlns:pns="http://api" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:user" type="tns:string"/>
       </operation>
       <operation xmlns:operNS="http://api" xmlns:retNS="http://api" xmlns:rtns="http://api" name="obtenirProducte" qname="operNS:obtenirProducte" returnQName="retNS:obtenirProducteReturn" returnType="rtns:Producte" soapAction="">
         <parameter xmlns:pns="http://api" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:user" type="tns:string"/>
