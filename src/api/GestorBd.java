@@ -45,7 +45,7 @@ public class GestorBd {
 		this.database = database;
 		this.userLogin = user;
 		this.userPasswd = passwd;
-		this.temps="?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false";
+		//this.temps="?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false";
 		
 	}
 	

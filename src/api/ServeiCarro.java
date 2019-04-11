@@ -80,7 +80,7 @@ public class ServeiCarro {
 
 		List<Producte> p = db.obtenirProductes();
 		
-		return (Producte[]) p.toArray();
+		return p.toArray(new Producte[p.size()]);
 
 	}
 
@@ -130,7 +130,9 @@ public class ServeiCarro {
 			Collection<Producte> p = db.obtenirProductesPerData(inici, fi);
 
 			
-			return (Producte[]) p.toArray();
+			//return (Producte[]) p.toArray();
+			
+			return p.toArray(new Producte[p.size()]);
 		
 	}
 

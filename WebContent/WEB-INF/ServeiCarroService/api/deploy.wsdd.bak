@@ -20,20 +20,20 @@
       <parameter name="className" value="api.ServeiCarroSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="ServeiCarro"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="autenticar" qname="operNS:autenticar" xmlns:operNS="http://api" returnQName="retNS:autenticarReturn" xmlns:retNS="http://api" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:nom" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:passwd" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      <operation name="obtenirProductes" qname="operNS:obtenirProductes" xmlns:operNS="http://api" returnQName="retNS:obtenirProductesReturn" xmlns:retNS="http://api" returnType="rtns:Producte" xmlns:rtns="http://api" soapAction="" >
+        <parameter qname="pns:user" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <operation name="afegirProducte" qname="operNS:afegirProducte" xmlns:operNS="http://api" returnQName="retNS:afegirProducteReturn" xmlns:retNS="http://api" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:user" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:producte" xmlns:pns="http://api" type="tns:Producte" xmlns:tns="http://api"/>
       </operation>
+      <operation name="autenticar" qname="operNS:autenticar" xmlns:operNS="http://api" returnQName="retNS:autenticarReturn" xmlns:retNS="http://api" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:nom" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:passwd" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
       <operation name="obtenirProducte" qname="operNS:obtenirProducte" xmlns:operNS="http://api" returnQName="retNS:obtenirProducteReturn" xmlns:retNS="http://api" returnType="rtns:Producte" xmlns:rtns="http://api" soapAction="" >
         <parameter qname="pns:user" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:product" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="obtenirProductes" qname="operNS:obtenirProductes" xmlns:operNS="http://api" returnQName="retNS:obtenirProductesReturn" xmlns:retNS="http://api" returnType="rtns:Producte" xmlns:rtns="http://api" soapAction="" >
-        <parameter qname="pns:user" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <operation name="otenirProductesperData" qname="operNS:otenirProductesperData" xmlns:operNS="http://api" returnQName="retNS:otenirProductesperDataReturn" xmlns:retNS="http://api" returnType="rtns:Producte" xmlns:rtns="http://api" soapAction="" >
         <parameter qname="pns:user" xmlns:pns="http://api" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
